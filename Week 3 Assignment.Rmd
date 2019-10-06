@@ -28,7 +28,6 @@ age <- unique(esoph$agegp)
 agei <- match(esoph$agegp, age)
 
 plot_ly(data=esoph, x = agei, y=~ncases, size=tobi, color=as.factor(esoph$alcgp))
-
-
 ```
+The code can be seen at https://github.com/jmterrettaz/DataProducts
 
