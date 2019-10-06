@@ -1,0 +1,34 @@
+
+
+```{r echo=FALSE, setup, include=TRUE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning = FALSE)
+knitr::opts_knit$set(progress=FALSE, verbose=FALSE)
+```
+```{r, echo=FALSE}
+library(plotly)
+```
+
+## October 6, 2019 
+
+The following plot is based on the `esoph` R dataset and shows the number of esophagus cancer depending on age, alcohol and tobacco consumption. 
+
+Age ranges are (numbered 1 to 6 on the x-axis of the plot): 
+```{r, echo=FALSE}
+unique(esoph$agegp)
+```
+
+The color shows the alcohol consumption. 
+
+The size of the point shows the tobacco comsumption
+```{r, echo=FALSE}
+library(plotly)
+tob <- unique(esoph$tobgp)
+tobi <- match(esoph$tobgp, tob)
+age <- unique(esoph$agegp)
+agei <- match(esoph$agegp, age)
+
+plot_ly(data=esoph, x = agei, y=~ncases, size=tobi, color=as.factor(esoph$alcgp))
+
+
+```
+
