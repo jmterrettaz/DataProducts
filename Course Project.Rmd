@@ -24,7 +24,6 @@ The number of passengers are taken from R's dataset AirPassengers.
 
 The following code draws the plot for year 1951:
 ```{r echo = TRUE, out.height=200, out.width=400}
-
 year <- 1951
 df <- data.frame(AirPassengers, year = trunc(time(AirPassengers)), 
    month = month.abb[cycle(AirPassengers)])
@@ -34,3 +33,8 @@ barplot(height = as.vector(selected$AirPassengers),
         names.arg = selected$month,  main = plot_title)
 ```
 
+## Code
+
+The code is available at: https://github.com/jmterrettaz/DataProducts/tree/master/CourseProject
+
+Enjoy!
