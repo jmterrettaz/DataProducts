@@ -1,0 +1,36 @@
+---
+title: "Developing Data Products Course Project"
+author: "Jean-Marc Terrettaz"
+date: "10/13/2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Description
+
+This small app shows the number of air passengers per month in the years 1949-1960. 
+
+The number of passengers are taken from R's dataset AirPassengers. 
+
+## How to use the app
+
+- Select the year in the input box on the left side
+- The number of air passergers for this year are shown in the plot on the right side.
+
+## Example: Air Passengers for year 1951
+
+The following code draws the plot for year 1951:
+```{r echo = TRUE, out.height=200, out.width=400}
+
+year <- 1951
+df <- data.frame(AirPassengers, year = trunc(time(AirPassengers)), 
+   month = month.abb[cycle(AirPassengers)])
+selected <- df[df$year==year,c(3,1)]
+plot_title <- paste('Air passengers for year',year )
+barplot(height = as.vector(selected$AirPassengers), 
+        names.arg = selected$month,  main = plot_title)
+```
+
